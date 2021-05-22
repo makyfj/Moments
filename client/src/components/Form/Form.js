@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from "react-file-base64";
 import useStyles from "./styles";
+import { useDispatch } from "react-redux";
+import { createPost } from "../../actions/postsActions";
 
 const Form = () => {
   const [postData, setPostData] = useState({
@@ -12,8 +14,12 @@ const Form = () => {
     selectedFile: "",
   });
   const classes = useStyles();
-  const handleSubmit = () => {
-    console.log("added");
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createPost(postData));
   };
   const clear = () => {
     console.log("clear");
@@ -53,7 +59,7 @@ const Form = () => {
           fullWidth
           value={postData.message}
           onChange={(e) =>
-            setPostData({ ...postData, creator: e.target.value })
+            setPostData({ ...postData, message: e.target.value })
           }
         />
         <TextField
