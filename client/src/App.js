@@ -6,6 +6,7 @@ import Posts from "./components/Posts/Posts";
 import memories from "./images/memories.png";
 import useStyles from "./styles";
 import { getPosts } from "./actions/postsActions";
+import "./index.css";
 
 const App = () => {
   const classes = useStyles();
