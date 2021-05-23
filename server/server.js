@@ -8,6 +8,7 @@ import postsRoutes from "./routes/postsRoutes.js";
 
 dotenv.config();
 
+// Mongoose database
 connectDB();
 
 const app = express();
